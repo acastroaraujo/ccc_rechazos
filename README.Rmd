@@ -1,0 +1,38 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(tidyverse)
+
+datasets <- dir(pattern = ".rds") %>% 
+  map(read_rds)
+
+names(datasets) <- dir(pattern = ".rds") %>% str_remove("\\.rds") 
+
+list2env(datasets, globalenv())
+```
+
+Este repositorio contiene tres bases de datos extraídas del [__buscador de procesos__](https://www.corteconstitucional.gov.co/secretaria/) en la página de la corte constitucional colombiana.
+
+```{r}
+glimpse(meta_datos)
+```
+
+```{r}
+glimpse(etapas)
+```
+
+```{r}
+glimpse(archivos)
+```
+
+
+

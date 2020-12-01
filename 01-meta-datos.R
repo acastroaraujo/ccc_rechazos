@@ -47,7 +47,7 @@ for (i in seq_along(output)) {
 
 bind_rows(output) %>% 
   mutate(fecha = lubridate::mdy(fecha, locale = "es_ES.UTF-8")) %>% 
-  write_rds("meta-datos.rds", compress = "gz")
+  write_rds("meta_datos.rds", compress = "gz")
 
 
 

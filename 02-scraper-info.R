@@ -45,13 +45,15 @@ output <- dir(outfolder, full.names = TRUE) %>%
 
 etapas <- output %>%
   pluck("Etapas") %>%
-  bind_rows()
+  bind_rows() %>% 
+  janitor::clean_names()
 
 write_rds(etapas, "etapas.rds", compress = "gz")
 
 archivos <- output %>% 
   pluck("Archivos") %>% 
-  bind_rows()
+  bind_rows() %>% 
+  janitor::clean_names()
 
 write_rds(archivos, "archivos.rds", compress = "gz")
 
